@@ -1,2 +1,6 @@
 # FL4GS
-A Flags module for Roblox
+A simple Flags module for Roblox.
+
+```lua
+print("hi")
+```
