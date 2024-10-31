@@ -38,5 +38,5 @@ FL4GS provides centralized management for application state using "flags" (state
 
 ## Credits
 
-Written by [STR8](https://github.com/S-T-R-8)
+Written by [STR8](https://github.com/S-T-R-8)<br/>
 Additonal help from [dumpstring](https://github.com/dumpstring)
