@@ -24,15 +24,15 @@ FL4GS provides centralized management for application state using "flags" (state
 
 ## API Reference
 
-| Method                                       | Description                                              |
-| -------------------------------------------- | -------------------------------------------------------- |
-| **`:SetFlag(flagname: string, newvalue)`**   | Sets the value of an existing flag or creates a new one. |
-| **`:GetFlag(flagname: string): flag`**       | Retrieves the specified flag.                            |
-| **`:FlagChanged(flagname: string): signal`** | Returns an event triggered when the flags value changes. |
-| **`:RemoveFlag(flagname: string)`**          | Deletes the specified flag.                              |
-| **`:FreezeFlag(flagname: string)`**          | Freezes the specified flag, making it read-only.         |
-| **`:UnfreezeFlag(flagname: string)`**        | Unfreezes the specified flag, allowing changes.          |
-| **`:GetAllFlags(): table`**                  | Returns a table of all flags.                            |
+| Method                                      | Description                                              |
+| ------------------------------------------- | -------------------------------------------------------- |
+| **`:SetFlag(flagname: string, newvalue)`**  | Sets the value of an existing flag or creates a new one. |
+| **`:GetFlag(flagname: string): flag`**      | Retrieves the specified flag.                            |
+| **`:FlagChanged(flagname: string): event`** | Returns an event triggered when the flags value changes. |
+| **`:RemoveFlag(flagname: string)`**         | Deletes the specified flag.                              |
+| **`:FreezeFlag(flagname: string)`**         | Freezes the specified flag, making it read-only.         |
+| **`:UnfreezeFlag(flagname: string)`**       | Unfreezes the specified flag, allowing changes.          |
+| **`:GetAllFlags(): { string }`**            | Returns a table of all flags.                            |
 
 ---
 
