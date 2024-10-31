@@ -5,9 +5,7 @@ local Flags = {}
 local Events = {}
 local Frozen = {}
 
-type void = nil;
-
-function FLGS:SetFlag(FlagName : string, FlagValue : any): void
+function FLGS:SetFlag(FlagName: string, FlagValue: any): nil
 	if not Events[FlagName] then
 		Events[FlagName] = Signal.new()
 	end
@@ -21,12 +19,11 @@ function FLGS:SetFlag(FlagName : string, FlagValue : any): void
 
 	Flags[FlagName] = FlagValue
 	Events[FlagName]:Fire(FlagValue, OldValue)
-	return;
+	return
 end
 
-function FLGS:GetFlag(FlagName : string): any
-	assert(Flags[FlagName] ~= nil, `Invalid flag name {FlagName}`)
-	return Flags[FlagName];
+function FLGS:GetFlag(FlagName: string): any
+	return assert(Flags[FlagName] ~= nil and Flags[FlagName], `Invalid flag name {FlagName}`)
 end
 
 function FLGS:FlagChanged(FlagName): Signal.Signal?
@@ -34,28 +31,28 @@ function FLGS:FlagChanged(FlagName): Signal.Signal?
 		return Events[FlagName]
 	end
 
-	return nil;
+	return nil
 end
 
 function FLGS:GetAllFlags(): { [string]: any }
 	return Flags
 end
 
-function FLGS:FreezeFlag(FlagName : string): void
+function FLGS:FreezeFlag(FlagName: string): nil
 	table.insert(Frozen, FlagName)
-	return;
+	return
 end
 
-function FLGS:UnfreezeFlag(FlagName : string): void
+function FLGS:UnfreezeFlag(FlagName: string): nil
 	table.remove(Frozen, table.find(Frozen, FlagName))
-	return;
+	return
 end
 
-function FLGS:RemoveFlag(FlagName : string): void
+function FLGS:RemoveFlag(FlagName: string): nil
 	table.remove(Frozen, table.find(Frozen, FlagName))
 	table.remove(Flags, table.find(Flags, FlagName))
 	table.remove(Events, table.find(Events, FlagName))
-	return;
+	return
 end
 
 return FLGS
